@@ -22,16 +22,11 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- <property name="configLocation" value="classpath:pack/resource/Configuration.xml"></property> -->
 	</bean>
-
+	
+	<!-- 다중 인터페이스 시작 -->
 	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value="pack.model.SangpumAnnoInter" />
-		<property name="sqlSessionFactory"
-			ref="sqlSessionFactoryBean" />
-	</bean>
-	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface"
-			value="pack.model.SangpumAnnoInter2" />
+			value="pack.model.client.MemberSQLInter" />
 		<property name="sqlSessionFactory"
 			ref="sqlSessionFactoryBean" />
 	</bean>
