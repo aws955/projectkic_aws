@@ -12,19 +12,19 @@
   <title>KIC 커뮤니티</title>
 
   <!-- Favicons -->
-  <link href="./resources/clientMain/img/favicon.png" rel="icon">
-  <link href="./resources/clientMain/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="${pageContext.request.contextPath}/resources/clientMain/img/favicon.png" rel="icon">
+  <link href="${pageContext.request.contextPath}/resources/clientMain/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="./resources/clientMain/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/clientMain/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
-  <link href="./resources/clientMain/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="./resources/clientMain/css/zabuto_calendar.css">
-  <link rel="stylesheet" type="text/css" href="./resources/clientMain/lib/gritter/css/jquery.gritter.css" />
+  <link href="${pageContext.request.contextPath}/resources/clientMain/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/clientMain/css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/clientMain/lib/gritter/css/jquery.gritter.css" />
   <!-- Custom styles for this template -->
-  <link href="./resources/clientMain/css/style.css" rel="stylesheet">
-  <link href="./resources/clientMain/css/style-responsive.css" rel="stylesheet">
-  <script src="./resources/clientMain/lib/chart-master/Chart.js"></script>
+  <link href="${pageContext.request.contextPath}/resources/clientMain/css/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/clientMain/css/style-responsive.css" rel="stylesheet">
+  <script src="${pageContext.request.contextPath}/resources/clientMain/lib/chart-master/Chart.js"></script>
 </head>
 
 <body>
@@ -42,7 +42,7 @@
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="logout">Logout</a></li>
         </ul>
         <ul class="nav pull-right top-menu">
             <li><a class="logout" href="login.html">마이페이지</a></li>

@@ -14,9 +14,9 @@ create table admin(
 a_num int primary key auto_increment,
 a_email varchar(40) not null,
 a_name varchar(10) not null,
-a_phone1 int(15) not null,
-a_phone2 int(15) not null,
-a_phone3 int(15) not null,
+a_phone1 varchar(15) not null,
+a_phone2 varchar(15) not null,
+a_phone3 varchar(15) not null,
 a_password varchar(60) not null)charset utf8;
 
 create table notice(

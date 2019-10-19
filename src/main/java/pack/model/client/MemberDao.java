@@ -19,11 +19,18 @@ public class MemberDao {
 	}
 	
 	public boolean emailChk(String m_email) {
-		System.out.println(inter.emailChk(m_email).getM_email());
 		if(inter.emailChk(m_email) != null) {
 			return true;
 		}else {
 			return false;
+		}
+	}
+	
+	public String clientLogin(MemberBean bean) {
+		if(inter.clientlogin(bean)==null) {
+			return "fail";
+		}else {
+			return inter.clientlogin(bean).getM_num();
 		}
 	}
 }

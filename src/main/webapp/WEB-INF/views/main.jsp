@@ -39,7 +39,7 @@
         <div class="col-12 my-auto">
           <div class="masthead-content text-white py-5 py-md-0">
             <h1 class="mb-3">KIC커뮤니티</h1>
-            <p class="mb-5">KIC캠퍼스 내에서 공모전 멤버를 쉽게 모을 수 있는 커뮤니티 사이트입니다. 추가적으로 스터디와 친목을 모을 수 있습니다. 수시로 업데이트 중입니다. 회원가입은 관리자 승인 후 가능합니다.</p>
+            <p class="mb-5">KIC캠퍼스 내에서 공모전 멤버를 쉽게 모을 수 있는 커뮤니티 사이트입니다. 추가적으로 스터디와 친목을 모을 수 있습니다. 수시로 업데이트 중입니다. 회원가입은 관리자 승인 후 가능합니다. 이상이 있을 시 관리자에게 문의하세요.</p>
             <button class="btn btn-secondary" type="button" onclick = "location.href ='signup'">회원가입</button>
             <button class="btn btn-secondary" type="button" onclick = "location.href ='clientLogin'">회원 로그인</button>
             <button class="btn btn-secondary" type="button" onclick = "location.href ='adminLogin'">관리자 로그인</button>

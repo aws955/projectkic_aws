@@ -30,8 +30,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td style="text-align: center">1</td>
-                    <td><a href="#">test1</a></td>
+                    <td style="text-align: center">${no }</td>
+                    <td><a href="#">${master }</a></td>
                     <td style="text-align: center">test1</td>
                     <td style="text-align: center">2019/10/15</td>
                     <td style="text-align: center">0</td>

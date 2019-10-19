@@ -12,4 +12,7 @@ public interface MemberSQLInter {
 	
 	@Select("select * from member where m_email=#{m_email}")
 	public MemberDto emailChk(String m_email);
+	
+	@Select("select m_num from member where m_email=#{m_email} and m_password = password(#{m_password}) and m_state=1")
+	public MemberDto clientlogin(MemberBean bean);
 }
