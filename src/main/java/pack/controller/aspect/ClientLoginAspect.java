@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClientLoginAspect {
 	@Around("execution(* client*(..))")
-	public Object clientLoginChk(ProceedingJoinPoint joinPoint) throws Throwable {
+	public Object cLoginChk(ProceedingJoinPoint joinPoint) throws Throwable {
 		HttpServletRequest request = null;
 		HttpServletResponse response = null;
 		for (Object obj : joinPoint.getArgs()) {
@@ -29,15 +29,13 @@ public class ClientLoginAspect {
 			HttpSession session = request.getSession();
 			String no = (String) session.getAttribute("no");
 			String master = (String) session.getAttribute("master");
-
+			System.out.println(no + " " + master);
 			if (no == null || no.equals("")) {
-				return null;
-			}else if(master == null || master.equals("")) {
-				return null;
+				return "main";
 			}
-			
-		} catch (Exception e) {
 
+		} catch (Exception e) {
+			
 		}
 		Object result = joinPoint.proceed();
 		return result;

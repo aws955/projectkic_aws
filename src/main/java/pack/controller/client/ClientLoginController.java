@@ -23,10 +23,10 @@ public class ClientLoginController {
 	@RequestMapping(value = "clientLogin",method = RequestMethod.POST)
 	public String cLogin(MemberBean bean,HttpServletRequest request) {
 		HttpSession session =request.getSession();
-		if(dao.clientLogin(bean).equals("fail")) {
+		if(dao.cLogin(bean).equals("fail")) {
 			return "redirect:main";
 		}else {
-			session.setAttribute("no", dao.clientLogin(bean));
+			session.setAttribute("no", dao.cLogin(bean));
 			session.setAttribute("master", "1");
 			return "redirect:clientNoticeList";
 		}

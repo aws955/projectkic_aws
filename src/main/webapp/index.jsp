@@ -9,5 +9,6 @@
 <body>
 <a href="main">Main</a>
 
+<a href="clientNoticeList">aop 실험</a>
 </body>
 </html>

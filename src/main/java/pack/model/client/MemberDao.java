@@ -26,7 +26,7 @@ public class MemberDao {
 		}
 	}
 	
-	public String clientLogin(MemberBean bean) {
+	public String cLogin(MemberBean bean) {
 		if(inter.clientlogin(bean)==null) {
 			return "fail";
 		}else {
