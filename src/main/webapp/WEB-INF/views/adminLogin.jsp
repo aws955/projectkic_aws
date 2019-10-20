@@ -35,10 +35,8 @@
           <h2 class="form-login-heading">관리자 로그인</h2>
           <div class="login-wrap">
             <input type="email" class="form-control" placeholder="User EMAIL" autofocus name="a_email">
-            <div id="emailErrorMsg" class="text-danger" style="font-size: 14px;"></div>
             <br>
             <input type="password" class="form-control" placeholder="Password" name="a_password">
-            <div id="passwordErrorMsg" class="text-danger" style="font-size: 14px;"></div>
             <br>
             <button class="btn btn-theme btn-block" href="#" type="submit"><i class="fa fa-lock"></i>로그인</button>
             <br>

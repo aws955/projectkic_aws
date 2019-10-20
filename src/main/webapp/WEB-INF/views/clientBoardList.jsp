@@ -16,7 +16,7 @@
           
           <div class="col-sm-2">
           	<form action="clientBoardCreate" method="get">
-          		<input type="hidden" value="${sidebar}">
+          		<input type="hidden" value="${sidebar}" name="sidebar">
               	<button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 5px;">새글 적기</button>
           	</form>
           </div>
@@ -47,10 +47,10 @@
                 		</tr>
                 	</c:if>
                 	<c:if test="${!empty list}">
-                		<c:forEach var="d" items="${list}">
+                		<c:forEach var="d" items="${list}" begin="0" end="${pagination.length}" varStatus="status">
                 			<tr>
-			                    <td style="text-align: center">${d.b_num }</td>
-			                    <td><a href="#">${d.b_title}</a></td>
+				                <td style="text-align: center">${pagination.pageNum - status.index}</td>
+			                    <td><a href="clientBoardView?b_num=${d.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=1">${d.b_title}</a></td>
 			                    <td style="text-align: center">${d.m_name}</td>
 			                    <td style="text-align: center">${d.b_udate}</td>
 			                    <td style="text-align: center">${d.b_views}</td>
@@ -59,28 +59,46 @@
                 	</c:if>
                 </tbody>
               </table>
-              <div style="text-align: center">
-                  <nav aria-label="Page navigation example">
-                      <ul class="pagination pagination-lg">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">&raquo;</a>
-                        </li>
-                      </ul>
-                  </nav>
-              </div> 
+              
+              <div style="text-align: center;">
+            	<nav aria-label="Page navigation example">
+					<ul class="pagination pagination-lg">
+						<c:if test="${pagination.currentBlock eq 1 }"></c:if>
+						<c:if test="${pagination.currentBlock != 1 }">
+							<li class="page-item ">
+	                          <a class="page-link" href="
+	                          	<c:if test="${sidebar eq '2' }">study?page=${pagination.startPage-1}</c:if>
+					          	<c:if test="${sidebar eq '3' }">competition?page=${pagination.startPage-1}</c:if>
+					          	<c:if test="${sidebar eq '4' }">amity?page=${pagination.startPage-1}</c:if>
+	                          " tabindex="-1">&laquo;</a>
+	                        </li>
+						</c:if>
+					
+						<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
+							<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
+								<a class="page-link" href="
+									<c:if test="${sidebar eq '2' }">study?page=${e}</c:if>
+						          	<c:if test="${sidebar eq '3' }">competition?page=${e}</c:if>
+						          	<c:if test="${sidebar eq '4' }">amity?page=${e}</c:if>
+								">${e}</a>
+							</li>
+						</c:forEach>
+						
+						<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
+						<c:if test="${pagination.currentBlock != pagination.totalBlock}">
+							<li class="page-item">
+	                          <a class="page-link" href="
+	                          	<c:if test="${sidebar eq '2' }">study?page=${pagination.endPage+1}</c:if>
+					          	<c:if test="${sidebar eq '3' }">competition?page=${pagination.endPage+1}</c:if>
+					          	<c:if test="${sidebar eq '4' }">amity?page=${pagination.endPage+1}</c:if>
+	                          " tabindex="-1">&raquo;</a>
+	                        </li>
+						</c:if>
+
+					</ul>
+				</nav>
+              </div>
+              
             </div>
           </div>
       </div>

@@ -3,7 +3,7 @@ package pack.controller.client;
 import pack.utility.Utility;
 
 public class BoardBean {
-	private String b_num,b_con,b_title,b_content,b_mno,b_ip,b_sdate,b_udate,b_views;
+	private String b_num,b_cno,b_title,b_content,b_mno,b_ip,b_sdate,b_udate,b_views;
 
 	public String getB_num() {
 		return b_num;
@@ -13,12 +13,12 @@ public class BoardBean {
 		this.b_num = b_num;
 	}
 
-	public String getB_con() {
-		return b_con;
+	public String getB_cno() {
+		return b_cno;
 	}
 
-	public void setB_con(String b_con) {
-		this.b_con = b_con;
+	public void setB_cno(String b_cno) {
+		this.b_cno = b_cno;
 	}
 
 	public String getB_title() {
@@ -76,5 +76,5 @@ public class BoardBean {
 	public void setB_views(String b_views) {
 		this.b_views = b_views;
 	}
-	
+
 }

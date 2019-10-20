@@ -24,6 +24,9 @@
   <!--script for this page-->
   <script src="${pageContext.request.contextPath}/resources/clientMain/lib/sparkline-chart.js"></script>
   <script src="${pageContext.request.contextPath}/resources/clientMain/lib/zabuto_calendar.js"></script>
+	
+	
+	<script src="${pageContext.request.contextPath}/resources/js/boardCreate.js"></script>	
 </body>
 
 </html>

@@ -33,4 +33,5 @@ public class MemberDao {
 			return inter.clientlogin(bean).getM_num();
 		}
 	}
+	
 }

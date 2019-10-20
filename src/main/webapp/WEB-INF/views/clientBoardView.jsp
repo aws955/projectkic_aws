@@ -9,8 +9,11 @@
       <section class="wrapper">
         <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>게시판 이름</h3>
         <div class="col-sm-2">
-          <button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 15px; margin-left: 30px;">리스트
-            보기</button>
+          <button type="button" class="btn btn-theme btn-lg pull-right" style="margin-top: 15px; margin-left: 30px;"
+          	<c:if test="${sidebar eq '2' }">onclick = "location.href ='study?page=${page}'"</c:if>
+            <c:if test="${sidebar eq '3' }">onclick = "location.href ='competition?page=${page}'"</c:if>
+            <c:if test="${sidebar eq '4' }">onclick = "location.href ='amity?page=${page}'"</c:if>
+          >리스트 보기</button>
         </div>
 
         <div class="row mt">
@@ -21,38 +24,39 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">작성자</label>
                   <div class="col-sm-2">
-                    <p class="form-control-static">홍길동</p>
+                    <p class="form-control-static">${dto.m_name }</p>
                   </div>
                   <label class="col-sm-2 control-label">날짜</label>
                   <div class="col-sm-2">
-                    <p class="form-control-static">2019/10/16</p>
+                    <p class="form-control-static">${dto.b_udate }</p>
                   </div>
                   <label class="col-sm-2 control-label">조회수</label>
                   <div class="col-sm-2">
-                    <p class="form-control-static">10</p>
+                    <p class="form-control-static">${dto.b_views }</p>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 col-sm-2 control-label">제목</label>
                   <div class="col-lg-10">
-                    <p class="form-control-static">KIC커뮤니티에 오신것을 환영합니다.</p>
+                    <p class="form-control-static">${dto.b_title}</p>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-lg-12">
-                    <p class="form-control-static">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <p class="form-control-static">${dto.b_content}</p>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="pull-right">
                     <div class="col-lg-12">
-                      <button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardModify'">글 수정</button>
-                      <button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardDelete'">글 삭제</button>
+                    	<c:if test="${sessionScope.no eq dto.b_mno }">
+                    		<button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardModify?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 수정</button>
+                      		<button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 삭제</button>
+                    	</c:if>
+                   	
+                   		<c:if test="${sessionScope.master eq '2' }">
+                     		<button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 삭제</button>
+                   		</c:if>
                     </div>
                   </div>
                 </div>
@@ -65,62 +69,96 @@
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <form class="form-horizontal style-form" method="get">
-                  <div class="form-group">
-                      <label class="col-sm-12 control-label">댓글 적기</label>
-                      <div class="col-sm-11">
-                        <textarea class="form-control" name="message" id="contact-message" rows="5" style="height: 100px;"></textarea>
-                      </div>
-                      <div class="col-sm-1">
-                          <button type="submit" class="btn btn-theme" style="margin-top: 30px;">댓글 작성</button>
-                      </div>
-                    </div>
-              </form>
-              <form class="form-horizontal style-form" method="get">
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">2019/10/16</label>
-                  <label class="col-sm-1 control-label">작성자</label>
-                  <div class="col-lg-8">
-                    <p class="form-control-static">KIC커뮤니티에 오신것을 환영합니다.</p>
-                  </div>
-                  <div class="pull-right">
-                    <div class="col-lg-12" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-theme">댓글 수정</button>
-                      <button type="submit" class="btn btn-theme">댓글 삭제</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <form class="form-horizontal style-form" method="get">
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">2019/10/16</label>
-                  <label class="col-sm-1 control-label">작성자</label>
-                  <div class="col-lg-8">
-                    <p class="form-control-static">KIC커뮤니티에 오신것을 환영합니다.</p>
-                  </div>
-                  <div class="pull-right">
-                    <div class="col-lg-12" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-theme">댓글 수정</button>
-                      <button type="submit" class="btn btn-theme">댓글 삭제</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <form class="form-horizontal style-form" method="get">
-                <div class="form-group">
-                  <label class="col-sm-1 control-label">2019/10/16</label>
-                  <label class="col-sm-1 control-label">작성자</label>
-                  <div class="col-lg-8">
-                    <p class="form-control-static">KIC커뮤니티에 오신것을 환영합니다.</p>
-                  </div>
-                  <div class="pull-right">
-                    <div class="col-lg-12" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-theme">댓글 수정</button>
-                      <button type="submit" class="btn btn-theme">댓글 삭제</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+            	<c:if test="${sessionScope.master eq '1' }">
+            		<form class="form-horizontal style-form" method="post" name="replyfrm" action="replyInsert">
+            			<input type="hidden" name="r_bno" value="${dto.b_num}">
+            			<input type="hidden" name="r_mno" value="${sessionScope.no}">
+            			<input type="hidden" name="r_ip" value="<%=request.getRemoteAddr()%>">
+            			<input type="hidden" name="page" value="${page }">
+            			<input type="hidden" name="sidebar" value="${sidebar}" >
+                  		<div class="form-group">
+                      		<label class="col-sm-12 control-label">댓글 적기</label>
+                      		<div class="col-sm-11">
+                        		<textarea class="form-control" name="r_content" id="r_content" rows="5" style="height: 100px;"></textarea>
+                      		</div>
+                      		<div class="col-sm-1">
+                          		<button type="button" class="btn btn-theme" style="margin-top: 30px;" id="replyChk">댓글 작성</button>
+                      		</div>
+                    	</div>
+             		 </form>
+            	</c:if>
+             	<c:if test="${empty list }">
+             		<p style="text-align: center;">등록된 게시글이 없습니다</p>
+             	</c:if>
+             	<c:if test="${!empty list }">
+             		<c:forEach var="r" items="${list }" >
+             			<form class="form-horizontal style-form">
+             				<div class="form-group">
+             					<label class="col-sm-1 control-label">${r.r_sdate}</label>
+                  				<label class="col-sm-1 control-label">${r.m_name}</label>
+                  				<div class="col-lg-8">
+                    				<p class="form-control-static">${r.r_content }</p>
+                  				</div>
+                  				<div class="pull-right">
+				                    <div class="col-lg-12" style="margin-top: 10px;">
+				                    	<c:if test="${sessionScope.no eq dto.b_mno }">
+				                			<button type="button" class="btn btn-theme">댓글 수정</button>
+				                      		<button type="button" class="btn btn-theme" onclick = "location.href ='replyDelete?b_num=${dto.b_num}&r_num=${r.r_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.page}'">댓글 삭제</button>
+				                    	</c:if>
+				                    	<c:if test="${sessionScope.master eq '2' }">
+				                    		<button type="button" class="btn btn-theme">댓글 삭제</button>
+				                    	</c:if>
+				                    </div>
+				                </div>
+             				</div>
+             			</form>
+            			<form class='form-horizontal style-form' method='post' name= "replyModifyfrm" action='replyModify'>
+           					<input type="hidden" name="r_num" value="${r.r_num }">
+           					<input type='hidden' name='r_bno' value='${dto.b_num}'>
+           					<input type='hidden' name='r_mno' value='${sessionScope.no}'>
+           					<input type='hidden' name='r_ip' value='<%=request.getRemoteAddr()%>'>
+           					<input type='hidden' name='page' value='${page }'>
+           					<input type='hidden' name='sidebar' value='${sidebar}' >
+           					<input type="hidden" name="rpage" value="${pagination.page}">
+           					<div class='form-group'>
+           						<label class='col-sm-12 control-label'>댓글 수정</label>
+           						<div class='col-sm-11'>
+           							<textarea class='form-control' name='r_content' id='r_contentModify' rows='5' style='height: 100px;'></textarea>
+           						</div>
+           						<div class='col-sm-1'>
+           							<button type='button' class='btn btn-theme' style='margin-top: 30px; margin-bottom:5px;' id='replyModifyChk'>댓글 수정</button>
+           							<button type='button' class='btn btn-theme' id='replyModifyCancle'>수정 취소</button>
+           						</div>
+           					</div>
+            			</form>
+             		</c:forEach>
+             	</c:if>
+             	             <div style="text-align: center;">
+            	<nav aria-label="Page navigation example">
+					<ul class="pagination pagination-lg">
+						<c:if test="${pagination.currentBlock eq 1 }"></c:if>
+						<c:if test="${pagination.currentBlock != 1 }">
+							<li class="page-item ">
+	                          <a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=${pagination.startPage-1}" tabindex="-1">&laquo;</a>
+	                        </li>
+						</c:if>
+					
+						<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
+							<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
+								<a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=${e}">${e}</a>
+							</li>
+						</c:forEach>
+						
+						<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
+						<c:if test="${pagination.currentBlock != pagination.totalBlock}">
+							<li class="page-item">
+	                          <a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=${pagination.endPage+1}" tabindex="-1">&raquo;</a>
+	                        </li>
+						</c:if>
+
+					</ul>
+				</nav>
+              </div>
             </div>
           </div>
         </div>
