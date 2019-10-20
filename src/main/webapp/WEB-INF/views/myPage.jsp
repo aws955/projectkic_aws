@@ -2,43 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="client_top.jsp" %>
     <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-          <li class="mt">
-            <a class="active" href="index.html">
-              <i class="fa fa-user"></i>
-              <span>공지사항</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a class="" href="#">
-              <i class="fa fa-flask"></i>
-              <span>스터디 게시판</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a class="" href="#">
-              <i class="fa fa-sitemap"></i>
-              <span>공모전 게시판</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a class="" href="#">
-              <i class="fa fa-cutlery"></i>
-              <span>친목 게시판</span>
-              </a>
-          </li>
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
@@ -56,32 +19,33 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label">이름</label>
                               <div class="col-sm-10">
-                                <p class="form-control-static">홍길동</p>
+                                <p class="form-control-static">${dto.m_name }</p>
                               </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">이메일</label>
                                 <div class="col-sm-10">
-                                  <p class="form-control-static">test@test.com</p>
+                                  <p class="form-control-static">${dto.m_email }</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">핸드폰 번호</label>
                                 <div class="col-sm-10">
-                                  <p class="form-control-static">010-1111-1111</p>
+                                  <p class="form-control-static">${dto.m_phone1}-${dto.m_phone2}-${dto.m_phone3}</p>
                                 </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label">가입 날짜</label>
                               <div class="col-sm-10">
-                                <p class="form-control-static">2019/10/16</p>
+                                <p class="form-control-static">${dto.m_regdate}</p>
                               </div>
                           </div>
                             <div class="form-group">
-                                <label class="col-sm-10 control-label"> </label>
-                                <div class="col-sm-2">
-                                  <button type="submit" class="btn btn-theme">회원정보 수정</button>
-                                  <button type="submit" class="btn btn-theme">회원탈퇴</button>
+                                <label class="col-sm-9 control-label"> </label>
+                                <div class="col-sm-3">
+                                  <button type="button" class="btn btn-theme">회원정보 수정</button>
+                                  <button type="button" class="btn btn-theme">비밀번호 변경</button>
+                                  <button type="button" class="btn btn-theme">회원탈퇴</button>
                                 </div>
                             </div>
                           </form>
@@ -104,10 +68,10 @@
                       <a href="#">작성한 댓글</a>
                     </li>
                     <li>
-                      <a href="#">받은 쪽지함</a>
+                      <a href="#" onclick="alert('준비중입니다.');">받은 쪽지함</a>
                     </li>
                     <li>
-                        <a href="#">보낸 쪽지함</a>
+                        <a href="#" onclick="alert('준비중입니다.');">보낸 쪽지함</a>
                     </li>
                   </ul>
                 </div>
@@ -120,8 +84,7 @@
               <table class="table">
                 <colgroup>
                   <col width="10%"/>
-                  <col width="60%"/>
-                  <col width="10%"/>
+                  <col width="70%"/>
                   <col width="10%"/>
                   <col width="10%"/>
                 </colgroup>
@@ -129,7 +92,6 @@
                   <tr>
                     <th style="text-align: center">번호</th>
                     <th>제목</th>
-                    <th style="text-align: center">작성자</th>
                     <th style="text-align: center">작성 날짜</th>
                     <th style="text-align: center">조회 수</th>
                   </tr>

@@ -34,4 +34,8 @@ public class MemberDao {
 		}
 	}
 	
+	public MemberDto getClient(String m_num) {
+		return inter.getClient(m_num);
+	}
+	
 }

@@ -15,4 +15,8 @@ public interface MemberSQLInter {
 	
 	@Select("select m_num from member where m_email=#{m_email} and m_password = password(#{m_password}) and m_state=1")
 	public MemberDto clientlogin(MemberBean bean);
+	
+	@Select("select m_num,m_email,m_name,m_password,m_phone1,m_phone2,m_phone3,m_state,m_grade,m_warning,DATE_FORMAT(m_regdate,'%Y/%m/%d') m_regdate "
+			+ "from member where m_num=#{m_num}")
+	public MemberDto getClient(String m_num);
 }

@@ -19,4 +19,12 @@ public class NoticeDao {
 	public int getTotalRows() {
 		return inter.getTotalRows();
 	}
+	
+	public NoticeDto getNoticeView(String n_num) {
+		return inter.getNoticeView(n_num);
+	}
+	
+	public void plusViews(String n_num) {
+		inter.plusViews(n_num);
+	}
 }

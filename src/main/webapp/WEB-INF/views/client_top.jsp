@@ -48,7 +48,7 @@
         
         <c:if test="${sessionScope.master eq '1'}" >
         	<ul class="nav pull-right top-menu">
-            	<li><a class="logout" href="login.html">마이페이지</a></li>
+            	<li><a class="logout" href="myPage?m_num=${sessionScope.no }">마이페이지</a></li>
         	</ul>
         </c:if>
         <c:if test="${sessionScope.master eq '2'}" >
