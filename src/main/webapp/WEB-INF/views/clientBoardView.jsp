@@ -7,7 +7,11 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>게시판 이름</h3>
+          <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>
+          	<c:if test="${sidebar eq '2' }">스터디 게시판</c:if>
+          	<c:if test="${sidebar eq '3' }">공모전 게시판</c:if>
+          	<c:if test="${sidebar eq '4' }">친목 게시판</c:if>
+          </h3>
         <div class="col-sm-2">
           <button type="button" class="btn btn-theme btn-lg pull-right" style="margin-top: 15px; margin-left: 30px;"
           	<c:if test="${sidebar eq '2' }">onclick = "location.href ='study?page=${page}'"</c:if>
@@ -46,20 +50,20 @@
                     <p class="form-control-static">${dto.b_content}</p>
                   </div>
                 </div>
-                <div class="form-group">
+				<div class="form-group">
                   <div class="pull-right">
                     <div class="col-lg-12">
-                    	<c:if test="${sessionScope.no eq dto.b_mno }">
-                    		<button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardModify?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 수정</button>
-                      		<button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 삭제</button>
-                    	</c:if>
+	                   	<c:if test="${sessionScope.no eq dto.b_mno }">
+                    		<button type="button" class="btn btn-theme" onclick = "location.href ='clientBoardModify?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 수정</button>
+                     		<button type="button" class="btn btn-theme" onclick = "deleteBoard('clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}')">글 삭제</button>
+	                   	</c:if>
                    	
                    		<c:if test="${sessionScope.master eq '2' }">
-                     		<button type="submit" class="btn btn-theme" onclick = "location.href ='clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 삭제</button>
+                     		<button type="submit" class="btn btn-theme" onclick = "deleteBoard('clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}')">글 삭제</button>
                    		</c:if>
                     </div>
                   </div>
-                </div>
+               </div>
               </form>
             </div>
           </div>
@@ -91,7 +95,7 @@
              		<p style="text-align: center;">등록된 게시글이 없습니다</p>
              	</c:if>
              	<c:if test="${!empty list }">
-             		<c:forEach var="r" items="${list }" >
+             		<c:forEach var="r" items="${list }" varStatus="vs" >
              			<form class="form-horizontal style-form">
              				<div class="form-group">
              					<label class="col-sm-1 control-label">${r.r_sdate}</label>
@@ -102,17 +106,17 @@
                   				<div class="pull-right">
 				                    <div class="col-lg-12" style="margin-top: 10px;">
 				                    	<c:if test="${sessionScope.no eq dto.b_mno }">
-				                			<button type="button" class="btn btn-theme">댓글 수정</button>
-				                      		<button type="button" class="btn btn-theme" onclick = "location.href ='replyDelete?b_num=${dto.b_num}&r_num=${r.r_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.page}'">댓글 삭제</button>
+				                			<button type="button" id="showModifyFrmButton${vs.index}" class="btn btn-theme" onclick="showModifyFrm(replyModifyfrm${vs.index},showModifyFrmButton${vs.index})">댓글 수정</button>
+				                      		<button type="button" class="btn btn-theme" onclick = "deleteReply('replyDelete?b_num=${dto.b_num}&r_num=${r.r_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.page}')">댓글 삭제</button>
 				                    	</c:if>
 				                    	<c:if test="${sessionScope.master eq '2' }">
-				                    		<button type="button" class="btn btn-theme">댓글 삭제</button>
+				                    		<button type="button" class="btn btn-theme" onclick = "deleteReply('replyDelete?b_num=${dto.b_num}&r_num=${r.r_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.page}')">댓글 삭제</button>
 				                    	</c:if>
 				                    </div>
 				                </div>
              				</div>
              			</form>
-            			<form class='form-horizontal style-form' method='post' name= "replyModifyfrm" action='replyModify'>
+            			<form class='form-horizontal style-form hide' method='post' id= "replyModifyfrm${vs.index}" action='replyModify'>
            					<input type="hidden" name="r_num" value="${r.r_num }">
            					<input type='hidden' name='r_bno' value='${dto.b_num}'>
            					<input type='hidden' name='r_mno' value='${sessionScope.no}'>
@@ -123,11 +127,11 @@
            					<div class='form-group'>
            						<label class='col-sm-12 control-label'>댓글 수정</label>
            						<div class='col-sm-11'>
-           							<textarea class='form-control' name='r_content' id='r_contentModify' rows='5' style='height: 100px;'></textarea>
+           							<textarea class='form-control' name='r_content' id='r_contentModify${vs.index }' rows='5' style='height: 100px;'></textarea>
            						</div>
            						<div class='col-sm-1'>
-           							<button type='button' class='btn btn-theme' style='margin-top: 30px; margin-bottom:5px;' id='replyModifyChk'>댓글 수정</button>
-           							<button type='button' class='btn btn-theme' id='replyModifyCancle'>수정 취소</button>
+           							<button type='button' class='btn btn-theme' style='margin-top: 30px; margin-bottom:5px;' onclick="modifyReply(r_contentModify${vs.index },replyModifyfrm${vs.index})">댓글 수정</button>
+           							<button type='button' class='btn btn-theme' onclick="hideModifyFrm(replyModifyfrm${vs.index},showModifyFrmButton${vs.index})">수정 취소</button>
            						</div>
            					</div>
             			</form>

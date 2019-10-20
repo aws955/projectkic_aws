@@ -26,7 +26,7 @@
   <script src="${pageContext.request.contextPath}/resources/clientMain/lib/zabuto_calendar.js"></script>
 	
 	
-	<script src="${pageContext.request.contextPath}/resources/js/boardCreate.js"></script>	
+	<script src="${pageContext.request.contextPath}/resources/js/client.js"></script>	
 </body>
 
 </html>

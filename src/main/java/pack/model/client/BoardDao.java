@@ -36,4 +36,20 @@ public class BoardDao {
 	public void plusViews(String b_num) {
 		inter.plusViews(b_num);
 	}
+	
+	public boolean updateBoard(BoardBean bean) {
+		if(inter.updateBoard(bean)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean deleteBoard(String b_num) {
+		if(inter.deleteBoard(b_num)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

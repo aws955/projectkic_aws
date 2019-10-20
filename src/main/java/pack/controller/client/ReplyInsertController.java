@@ -25,7 +25,7 @@ public class ReplyInsertController {
 			
 		dao.insertReply(bean);
 		
-		return "redirect:clientBoardView?b_num="+bean.getR_bno()+"&page="+page+"&sidebar="+page+"&rpage=1";
+		return "redirect:clientBoardView?b_num="+bean.getR_bno()+"&page="+page+"&sidebar="+sidebar+"&rpage=1";
 		
 	}
 }

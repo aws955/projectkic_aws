@@ -42,9 +42,15 @@
 		<property name="sqlSessionFactory"
 			ref="sqlSessionFactoryBean" />
 	</bean>
-		<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
 			value="pack.model.client.ReplySQLInter" />
+		<property name="sqlSessionFactory"
+			ref="sqlSessionFactoryBean" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface"
+			value="pack.model.admin.NoticeSQLInter" />
 		<property name="sqlSessionFactory"
 			ref="sqlSessionFactoryBean" />
 	</bean>

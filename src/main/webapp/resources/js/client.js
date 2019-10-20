@@ -31,37 +31,40 @@ jQuery(document).ready(function(){
 		replyfrm.submit();
 	});
 	
-	jQuery('#replyModify').on('click',function(){
-		jQuery('#replyModify').html('');
-		jQuery('#replyModifyfrm').removeClass('hide');
-		
-		jQuery('#replyModifyChk').on('click',function(){
-			if(jQuery.trim(jQuery('#r_contentModify').val()).length == 0){
-				alert('댓글 내용을 입력하세요');
-				return;
-			}
-			if(jQuery.trim(jQuery('#r_contentModify').val()).length >= 200){
-				alert('댓글 내용은 200자까지 가능합니다');
-				return;
-			}
-			
-			replyModifySubmit();
-		});
-		
-		
-		jQuery('#replyModifyCancle').on('click',function(){
-			jQuery('#replyModify').html('댓글 수정');
-			jQuery('#replyModifyForm').html('');
-		});
-	});
-	
-	function replyModifySubmit(){
-		jQuery("#replyModifyfrm").submit();
-	};
-	
-	function showModifyFrm(index) {
-		jQuery('#index').removeClass('hide');
-	};
 
 });
+
+function showModifyFrm(id,id1) {
+	jQuery(id).removeClass('hide');
+	jQuery(id1).addClass('hide')
+};
+
+function hideModifyFrm(id,id1){
+	jQuery(id).addClass('hide');
+	jQuery(id1).removeClass('hide');
+};
+
+function modifyReply(id,id1){
+	if(jQuery.trim(jQuery(id).val()).length == 0) {
+		alert('댓글 내용을 입력하세요');
+		return;
+	}
+	if(jQuery.trim(jQuery(id).val()).length >= 200){
+		alert('댓글 내용은 200자까지 가능합니다');
+		return;
+	}
+	jQuery(id1).submit();
+};
+
+function deleteReply(url){
+	if(confirm('정말 삭제하시겠습니까?')){
+		location.href =url;
+	}
+}
+
+function deleteBoard(url){
+	if(confirm('정말 삭제하시겠습니까?')){
+		location.href=url;
+	}
+}
 

@@ -44,4 +44,8 @@ public class ReplyDao {
 			return false;
 		}
 	}
+	
+	public void deleteForBoardDelete(String b_num) {
+		inter.deleteForBoardDelete(b_num);
+	}
 }

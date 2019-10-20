@@ -35,4 +35,8 @@ public interface ReplySQLInter {
 	@Delete("delete from reply "
 			+ "where r_num = #{r_num}")
 	public int deleteReply(String r_num);
+	
+	@Delete("delete from reply "
+			+ "where r_bno=#{b_num}")
+	public void deleteForBoardDelete(String b_num);
 }
