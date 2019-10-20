@@ -7,9 +7,18 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-          <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>게시판 이름</h3>
+          <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>
+          	<c:if test="${sidebar eq '2' }">스터디 게시판</c:if>
+          	<c:if test="${sidebar eq '3' }">공모전 게시판</c:if>
+          	<c:if test="${sidebar eq '4' }">친목 게시판</c:if>
+          </h3>
+          
+          
           <div class="col-sm-2">
-              <button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 5px;" onclick = "location.href ='clientBoardCreate'">새글 적기</button>
+          	<form action="clientBoardCreate" method="get">
+          		<input type="hidden" value="${sidebar}">
+              	<button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 5px;">새글 적기</button>
+          	</form>
           </div>
         <div class="row">
           <div class="col-md-12">
@@ -32,76 +41,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td style="text-align: center">${no }</td>
-                    <td><a href="#">${master }</a></td>
-                    <td style="text-align: center">test1</td>
-                    <td style="text-align: center">2019/10/15</td>
-                    <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">2</td>
-                      <td><a href="#">test2</a></td>
-                      <td style="text-align: center">test2</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">3</td>
-                      <td><a href="#">test3</a></td>
-                      <td style="text-align: center">test3</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">4</td>
-                      <td><a href="#">test4</a></td>
-                      <td style="text-align: center">test4</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">5</td>
-                      <td><a href="#">test5</a></td>
-                      <td style="text-align: center">test5</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">6</td>
-                      <td><a href="#">test6</a></td>
-                      <td style="text-align: center">test6</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">7</td>
-                      <td><a href="#">test7</a></td>
-                      <td style="text-align: center">test7</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">8</td>
-                      <td><a href="#">test8</a></td>
-                      <td style="text-align: center">test8</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">9</td>
-                      <td><a href="#">test9</a></td>
-                      <td style="text-align: center">test9</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">10</td>
-                      <td><a href="#">test10</a></td>
-                      <td style="text-align: center">test10</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
+                	<c:if test="${empty list}">
+                		<tr>
+	                		<td colspan="5" style="text-align: center;">등록된 게시글이 없습니다.</td>
+                		</tr>
+                	</c:if>
+                	<c:if test="${!empty list}">
+                		<c:forEach var="d" items="${list}">
+                			<tr>
+			                    <td style="text-align: center">${d.b_num }</td>
+			                    <td><a href="#">${d.b_title}</a></td>
+			                    <td style="text-align: center">${d.m_name}</td>
+			                    <td style="text-align: center">${d.b_udate}</td>
+			                    <td style="text-align: center">${d.b_views}</td>
+		                  	</tr>
+                		</c:forEach>
+                	</c:if>
                 </tbody>
               </table>
               <div style="text-align: center">

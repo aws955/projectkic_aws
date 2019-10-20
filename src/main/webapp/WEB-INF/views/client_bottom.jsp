@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!--footer start-->
+   <section> 
     <footer class="site-footer">
       <div class="text-center">
        <p>KIC캠퍼스 내에서 공모전 멤버를 쉽게 모을 수 있는 커뮤니티 사이트입니다. 추가적으로 스터디와 친목을 모을 수 있습니다. 수시로 업데이트 중입니다.</p>

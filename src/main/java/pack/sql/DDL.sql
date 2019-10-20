@@ -44,7 +44,7 @@ m_regdate datetime not null
 
 create table board(
 b_num int PRIMARY KEY auto_increment,
-b_con int not null,
+b_cno int not null,
 b_title varchar(500) not null,
 b_content varchar(10000) not null,
 b_mno int not null, 
@@ -52,7 +52,7 @@ b_ip varchar(20) not null,
 b_sdate datetime not null, 
 b_udate datetime not null,
 b_views int(11) not null,
-foreign key(b_con) references category(c_num),		
+foreign key(b_cno) references category(c_num),		
 foreign key(b_mno) references member(m_num))charset utf8;
 
 create table reply(

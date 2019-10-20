@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="main">Main</a>
-
-<a href="clientNoticeList">aop 실험</a>
+<% response.sendRedirect("clientNoticeList"); %>
 </body>
 </html>

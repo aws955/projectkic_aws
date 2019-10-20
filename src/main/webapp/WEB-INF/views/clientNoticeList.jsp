@@ -32,7 +32,7 @@
                   <tr>
                     <td style="text-align: center">${no }</td>
                     <td><a href="#">${master }</a></td>
-                    <td style="text-align: center">test1</td>
+                    <td style="text-align: center">${sessionScope.master eq '2'}</td>
                     <td style="text-align: center">2019/10/15</td>
                     <td style="text-align: center">0</td>
                   </tr>

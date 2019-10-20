@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,40 +45,51 @@
         <ul class="nav pull-right top-menu">
           <li><a class="logout" href="logout">Logout</a></li>
         </ul>
-        <ul class="nav pull-right top-menu">
-            <li><a class="logout" href="login.html">마이페이지</a></li>
-        </ul>
+        
+        <c:if test="${sessionScope.master eq '1'}" >
+        	<ul class="nav pull-right top-menu">
+            	<li><a class="logout" href="login.html">마이페이지</a></li>
+        	</ul>
+        </c:if>
+        <c:if test="${sessionScope.master eq '2'}" >
+        	<ul class="nav pull-right top-menu">
+            	<li><a class="logout" href="login.html">관리자페이지</a></li>
+        	</ul>
+        </c:if>
+
       </div>
     </header>
     <!--header end-->
     <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
+    
     <!--sidebar start-->
     <aside>
       <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <li class="mt">
-            <a class="active" href="index.html">
+            <a <c:if test="${sidebar eq '1' }">class="active"</c:if> href="clientNoticeList">
               <i class="fa fa-user"></i>
               <span>공지사항</span>
               </a>
           </li>
+          
           <li class="sub-menu">
-            <a class="" href="clientBoardList/study">
+            <a <c:if test="${sidebar eq '2' }">class="active"</c:if> href="study">
               <i class="fa fa-flask"></i>
               <span>스터디 게시판</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="clientBoardList/competition">
+            <a <c:if test="${sidebar eq '3' }">class="active"</c:if> href="competition">
               <i class="fa fa-sitemap"></i>
               <span>공모전 게시판</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="clientBoardList/amity">
+            <a <c:if test="${sidebar eq '4' }">class="active"</c:if> href="amity">
               <i class="fa fa-cutlery"></i>
               <span>친목 게시판</span>
               </a>

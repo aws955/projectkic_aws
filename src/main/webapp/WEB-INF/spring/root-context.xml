@@ -36,4 +36,10 @@
 		<property name="sqlSessionFactory"
 			ref="sqlSessionFactoryBean" />
 	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface"
+			value="pack.model.client.BoardSQLInter" />
+		<property name="sqlSessionFactory"
+			ref="sqlSessionFactoryBean" />
+	</bean>
 </beans>

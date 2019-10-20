@@ -8,6 +8,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.ModelAndView;
 
 @Aspect
 @Component
@@ -26,12 +27,15 @@ public class ClientLoginAspect {
 		}
 
 		try {
-			HttpSession session = request.getSession();
-			String no = (String) session.getAttribute("no");
-			String master = (String) session.getAttribute("master");
-			System.out.println(no + " " + master);
-			if (no == null || no.equals("")) {
-				return "main";
+			if(request != null) {
+				HttpSession session = request.getSession();
+				String no = (String) session.getAttribute("no");
+				String master = (String) session.getAttribute("master");
+				if (no == null || no.equals("")) {
+					return new ModelAndView("redirect:main");
+				}else if (master == null || master.equals("")) {
+					return new ModelAndView("redirect:main");
+				}
 			}
 
 		} catch (Exception e) {
