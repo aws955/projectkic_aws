@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import pack.controller.admin.NoticeBean;
 import pack.utility.Pagination;
 
 @Repository
@@ -26,5 +27,29 @@ public class NoticeDao {
 	
 	public void plusViews(String n_num) {
 		inter.plusViews(n_num);
+	}
+	
+	public boolean insertNotice(NoticeBean bean) {
+		if(inter.insertNotice(bean)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean updateNotice(NoticeBean bean) {
+		if(inter.updateNotice(bean)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean deleteNotice(String n_num) {
+		if(inter.deleteNotice(n_num)>0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 }

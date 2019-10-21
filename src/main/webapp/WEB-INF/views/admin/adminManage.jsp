@@ -29,80 +29,52 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td style="text-align: center">1</td>
-                    <td>test@test.com</td>
-                    <td style="text-align: center">홍길동</td>
-                    <td style="text-align: center">010-1111-1111</td>
-                    <td style="text-align: center">
-                      <button type="submit" class="btn btn-theme" onclick = "location.href ='adminModify'">수정</button>
-                      <button type="submit" class="btn btn-theme" onclick = "location.href ='adminDelete'">삭제</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">1</td>
-                    <td>test@test.com</td>
-                    <td style="text-align: center">홍길동</td>
-                    <td style="text-align: center">010-1111-1111</td>
-                    <td style="text-align: center">
-                      <button type="submit" class="btn btn-theme">수정</button>
-                      <button type="submit" class="btn btn-theme">삭제</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">1</td>
-                    <td>test@test.com</td>
-                    <td style="text-align: center">홍길동</td>
-                    <td style="text-align: center">010-1111-1111</td>
-                    <td style="text-align: center">
-                      <button type="submit" class="btn btn-theme">수정</button>
-                      <button type="submit" class="btn btn-theme">삭제</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">1</td>
-                    <td>test@test.com</td>
-                    <td style="text-align: center">홍길동</td>
-                    <td style="text-align: center">010-1111-1111</td>
-                    <td style="text-align: center">
-                      <button type="submit" class="btn btn-theme">수정</button>
-                      <button type="submit" class="btn btn-theme">삭제</button>
-                    </td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">1</td>
-                      <td>test@test.com</td>
-                      <td style="text-align: center">홍길동</td>
-                      <td style="text-align: center">010-1111-1111</td>
-                      <td style="text-align: center">
-                        <button type="submit" class="btn btn-theme">수정</button>
-                        <button type="submit" class="btn btn-theme">삭제</button>
-                      </td>
-                    </tr>
+                	<c:if test="${empty list}">
+                		<tr>
+	                		<td colspan="5" style="text-align: center;">회원이 없습니다.</td>
+                		</tr>
+                	</c:if>
+                	<c:if test="${!empty list}"> 
+                		<c:forEach var="d" items="${list}" begin="0" end="${pagination.length}" varStatus="status">
+                			<tr>
+				                <td style="text-align: center">${pagination.pageNum - status.index}</td>
+			                    <td><a href="noticeView?m_num=${d.m_num}&page=${pagination.page}&sidebar=${sidebar}">${d.m_email}</a></td>
+			                    <td style="text-align: center">${d.m_name}</td>
+			                    <td style="text-align: center">${d.m_phone1}-${d.m_phone2}-${d.m_phone3}</td>
+			                    <td style="text-align: center">${d.m_regdate}</td>
+		                  	</tr>
+                		</c:forEach>
+                	</c:if>
+                
                 </tbody>
               </table>
-              <div style="text-align: center">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination pagination-lg">
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                    <li class="page-item"><a class="page-link" href="#">8</a></li>
-                    <li class="page-item"><a class="page-link" href="#">9</a></li>
-                    <li class="page-item"><a class="page-link" href="#">10</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">&raquo;</a>
-                    </li>
-                  </ul>
-                </nav>
+              
+              <div style="text-align: center;">
+            	<nav aria-label="Page navigation example">
+					<ul class="pagination pagination-lg">
+						<c:if test="${pagination.currentBlock eq 1 }"></c:if>
+						<c:if test="${pagination.currentBlock != 1 }">
+							<li class="page-item ">
+	                          <a class="page-link" href='memberManage?page=${pagination.startPage-1}' tabindex="-1">&laquo;</a>
+	                        </li>
+						</c:if>
+					
+						<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
+							<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
+								<a class="page-link" href="memberManage?page=${e}">${e}</a>
+							</li>
+						</c:forEach>
+						
+						<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
+						<c:if test="${pagination.currentBlock != pagination.totalBlock}">
+							<li class="page-item">
+	                          <a class="page-link" href="memberManage?page=${pagination.endPage+1}" tabindex="-1">&raquo;</a>
+	                        </li>
+						</c:if>
+					</ul>
+				</nav>
               </div>
+              
             </div>
           </div>
         </div>

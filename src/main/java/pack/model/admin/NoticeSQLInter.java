@@ -3,9 +3,12 @@ package pack.model.admin;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import pack.controller.admin.NoticeBean;
 import pack.utility.Pagination;
 
 public interface NoticeSQLInter {
@@ -26,4 +29,14 @@ public interface NoticeSQLInter {
 	
 	@Update("update notice set n_views = n_views+1 where n_num=#{n_num}")
 	public void plusViews(String n_num);
+	
+	@Insert("insert into notice(n_num,n_title,n_content,n_ano, n_sdate,n_views) "
+			+ "values(null,#{n_title},#{n_content},#{n_ano},now(),0)")
+	public int insertNotice(NoticeBean bean);
+	
+	@Update("update notice set n_title=#{n_title}, n_content=#{n_content}, n_ano=#{n_ano}, n_sdate=now() where n_num=#{n_num} ")
+	public int updateNotice(NoticeBean bean);
+	
+	@Delete("delete from notice where n_num=#{n_num}")
+	public int deleteNotice(String n_num);
 }

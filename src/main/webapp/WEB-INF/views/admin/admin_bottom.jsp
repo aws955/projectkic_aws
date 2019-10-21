@@ -17,6 +17,8 @@
   <!--script for this page-->
   <script src="./resources/adminMain/lib/sparkline-chart.js"></script>
   <script src="./resources/adminMain/lib/zabuto_calendar.js"></script>
+  
+  <script src="./resources/js/admin.js"></script>
 </body>
 
 </html>

@@ -39,4 +39,14 @@ public interface ReplySQLInter {
 	@Delete("delete from reply "
 			+ "where r_bno=#{b_num}")
 	public void deleteForBoardDelete(String b_num);
+	
+	@Select("select r_num,r_content,r_bno,DATE_FORMAT(r_sdate,'%Y/%m/%d') r_sdate,r_mno,r_ip,m_name,b_cno "
+			+ "from reply,member,board "
+			+ "where r_mno=m_num and r_bno=b_num and r_mno=#{m_num} "
+			+ "order by r_num desc "
+			+ "limit #{start},#{length}")
+	public List<ReplyDto> getClientReply(Pagination pagination);
+	
+	@Select("select count(*) from reply where r_mno=#{m_num}")
+	public int getClientReplyCount(String m_num);
 }

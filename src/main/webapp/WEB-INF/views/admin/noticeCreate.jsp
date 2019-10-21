@@ -8,31 +8,29 @@
     <section id="main-content">
         <section class="wrapper">
           <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>공지사항 작성</h3>
-          <div class="col-sm-2">
-              <button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 15px; margin-left: 30px;" onclick = "location.href ='noticeList'">리스트 보기</button>
-          </div>
-          
+
           <div class="row mt">
             <div class="col-lg-12">
               <div class="form-panel">
-                <form class="form-horizontal style-form" method="post" action="noticeCreate">
+                <form class="form-horizontal style-form" method="post" action="noticeCreate" name="noticefrm">
+                	<input type="hidden" value="${sessionScope.no}" name="n_ano">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">제목</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="n_title" id="n_title">
                         </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-12 control-label">글 내용</label>
                       <div class="col-sm-12">
-                        <textarea class="form-control" name="message" id="contact-message" rows="5" style="height: 500px;"></textarea>
+                        <textarea class="form-control" name="n_content" id="n_content" rows="5" style="height: 500px;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                         <div class="pull-right">
                             <div class="col-lg-12">
-                                <button type="submit" class="btn btn-theme">글 작성</button>
-                                <button type="submit" class="btn btn-theme">리스트</button>
+                                <button type="button" class="btn btn-theme" id="noticeChk">글 작성</button>
+                                <button type="button" class="btn btn-theme" onclick = "location.href ='noticeList'">리스트</button>
                             </div>
                         </div>    
                     </div>

@@ -22,7 +22,7 @@ public class ReplyInsertController {
 			ReplyBean bean,
 			@RequestParam("page") String page,
 			@RequestParam("sidebar") String sidebar) {
-			
+		
 		dao.insertReply(bean);
 		
 		return "redirect:clientBoardView?b_num="+bean.getR_bno()+"&page="+page+"&sidebar="+sidebar+"&rpage=1";

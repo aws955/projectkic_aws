@@ -53,7 +53,7 @@
 				<div class="form-group">
                   <div class="pull-right">
                     <div class="col-lg-12">
-	                   	<c:if test="${sessionScope.no eq dto.b_mno }">
+	                   	<c:if test="${sessionScope.no eq dto.b_mno && sessionScope.master eq '1'}">
                     		<button type="button" class="btn btn-theme" onclick = "location.href ='clientBoardModify?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}'">글 수정</button>
                      		<button type="button" class="btn btn-theme" onclick = "deleteBoard('clientBoardDelete?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}')">글 삭제</button>
 	                   	</c:if>
@@ -105,7 +105,7 @@
                   				</div>
                   				<div class="pull-right">
 				                    <div class="col-lg-12" style="margin-top: 10px;">
-				                    	<c:if test="${sessionScope.no eq dto.b_mno }">
+				                    	<c:if test="${sessionScope.no eq dto.b_mno && sessionScope.master eq '1'}">
 				                			<button type="button" id="showModifyFrmButton${vs.index}" class="btn btn-theme" onclick="showModifyFrm(replyModifyfrm${vs.index},showModifyFrmButton${vs.index})">댓글 수정</button>
 				                      		<button type="button" class="btn btn-theme" onclick = "deleteReply('replyDelete?b_num=${dto.b_num}&r_num=${r.r_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.page}')">댓글 삭제</button>
 				                    	</c:if>

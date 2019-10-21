@@ -61,11 +61,11 @@
               <div class="row content-panel">
                 <div class="panel-heading">
                   <ul class="nav nav-tabs nav-justified">
-                    <li class="active">
-                      <a href="#overview">작성한 글</a>
+                    <li <c:if test="${!empty boardlist}">class="active"</c:if>>
+                      <a href="myPage?m_num=${sessionScope.no}">작성한 글</a>
                     </li>
-                    <li>
-                      <a href="#">작성한 댓글</a>
+                    <li <c:if test="${!empty replylist}">class="active"</c:if>>
+                      <a href="myPage?m_num=${sessionScope.no}&show=2">작성한 댓글</a>
                     </li>
                     <li>
                       <a href="#" onclick="alert('준비중입니다.');">받은 쪽지함</a>
@@ -78,87 +78,133 @@
                 <!-- /panel-heading -->
               </div>
             </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="content-panel">
-              <table class="table">
-                <colgroup>
-                  <col width="10%"/>
-                  <col width="70%"/>
-                  <col width="10%"/>
-                  <col width="10%"/>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th style="text-align: center">번호</th>
-                    <th>제목</th>
-                    <th style="text-align: center">작성 날짜</th>
-                    <th style="text-align: center">조회 수</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="text-align: center">1</td>
-                    <td><a href="#">test1</a></td>
-                    <td style="text-align: center">test1</td>
-                    <td style="text-align: center">2019/10/15</td>
-                    <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">2</td>
-                      <td><a href="#">test2</a></td>
-                      <td style="text-align: center">test2</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">3</td>
-                      <td><a href="#">test3</a></td>
-                      <td style="text-align: center">test3</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">4</td>
-                      <td><a href="#">test4</a></td>
-                      <td style="text-align: center">test4</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                  <tr>
-                      <td style="text-align: center">5</td>
-                      <td><a href="#">test5</a></td>
-                      <td style="text-align: center">test5</td>
-                      <td style="text-align: center">2019/10/15</td>
-                      <td style="text-align: center">0</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div style="text-align: center">
-                  <nav aria-label="Page navigation example">
-                      <ul class="pagination pagination-lg">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">&raquo;</a>
-                        </li>
-                      </ul>
-                  </nav>
-              </div> 
-            </div>
-          </div>
-      </div>
+        
+        <c:if test="${!empty boardlist}">
+        	   <div class="row">
+		          <div class="col-md-12">
+		            <div class="content-panel">
+		              <table class="table">
+		                <colgroup>
+		                  <col width="10%"/>
+		                  <col width="10%"/>
+		                  <col width="60%"/>
+		                  <col width="10%"/>
+		                  <col width="10%"/>
+		                </colgroup>
+		                <thead>
+		                  <tr>
+		                    <th style="text-align: center">번호</th>
+		                    <th style="text-align: center">카테고리</th>
+		                    <th>제목</th>
+		                    <th style="text-align: center">작성 날짜</th>
+		                    <th style="text-align: center">조회 수</th>
+		                  </tr>
+		                </thead>
+		                <tbody>
+			             	<c:forEach var="d" items="${boardlist}" begin="0" end="${pagination.length}" varStatus="status">
+	                			<tr>
+					                <td style="text-align: center">${pagination.pageNum - status.index}</td>
+				                    <td style="text-align: center">${d.c_name}</td>
+				                    <td><a href="clientBoardView?b_num=${d.b_num}&page=1&sidebar=${d.b_cno+1}&rpage=1">${d.b_title}</a></td>
+				                    <td style="text-align: center">${d.b_udate}</td>
+				                    <td style="text-align: center">${d.b_views}</td>
+			                  	</tr>
+	                		</c:forEach>
+		                </tbody>
+		              </table>
+		              
+		              <div style="text-align: center;">
+		            	<nav aria-label="Page navigation example">
+							<ul class="pagination pagination-lg">
+								<c:if test="${pagination.currentBlock eq 1 }"></c:if>
+								<c:if test="${pagination.currentBlock != 1 }">
+									<li class="page-item ">
+			                          <a class="page-link" href='myPage?m_num=${sessionScope.no}&page=${pagination.startPage-1}&show=1' tabindex="-1">&laquo;</a>
+			                        </li>
+								</c:if>
+							
+								<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
+									<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
+										<a class="page-link" href="myPage?m_num=${sessionScope.no}&page=${e}&show=1">${e}</a>
+									</li>
+								</c:forEach>
+								
+								<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
+								<c:if test="${pagination.currentBlock != pagination.totalBlock}">
+									<li class="page-item">
+			                          <a class="page-link" href="myPage?m_num=${sessionScope.no}&page=${pagination.endPage+1}&show=1" tabindex="-1">&raquo;</a>
+			                        </li>
+								</c:if>
+							</ul>
+						</nav>
+		              </div>
+				              
+		               
+		            </div>
+		          </div>
+		      </div>
+        </c:if>    
+        
+        <c:if test="${!empty replylist}">
+        	<div class="row">
+	          <div class="col-md-12">
+	            <div class="content-panel">
+	              <table class="table">
+	                <colgroup>
+	                  <col width="10%"/>
+	                  <col width="80%"/>
+	                  <col width="10%"/>
+	                </colgroup>
+	                <thead>
+	                  <tr>
+	                    <th style="text-align: center">번호</th>
+	                    <th>댓글 내용</th>
+	                    <th style="text-align: center">작성 날짜</th>
+	                  </tr>
+	                </thead>
+	                <tbody>
+              			<c:forEach var="d" items="${replylist}" begin="0" end="${pagination.length}" varStatus="status">
+                			<tr>
+				                <td style="text-align: center">${pagination.pageNum - status.index}</td>
+			                    <td><a href="clientBoardView?b_num=${d.r_bno}&page=1&sidebar=${d.b_cno+1}&rpage=1">${d.r_content}</a></td>
+			                    <td style="text-align: center">${d.r_sdate}</td>
+		                  	</tr>
+                		</c:forEach>
+	                </tbody>
+	              </table>
+	              
+	              <div style="text-align: center;">
+	            	<nav aria-label="Page navigation example">
+						<ul class="pagination pagination-lg">
+							<c:if test="${pagination.currentBlock eq 1 }"></c:if>
+							<c:if test="${pagination.currentBlock != 1 }">
+								<li class="page-item ">
+		                          <a class="page-link" href='myPage?m_num=${sessionScope.no}&page=${pagination.startPage-1}&show=2' tabindex="-1">&laquo;</a>
+		                        </li>
+							</c:if>
+						
+							<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
+								<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
+									<a class="page-link" href="myPage?m_num=${sessionScope.no}&page=${e}&show=2">${e}</a>
+								</li>
+							</c:forEach>
+							
+							<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
+							<c:if test="${pagination.currentBlock != pagination.totalBlock}">
+								<li class="page-item">
+		                          <a class="page-link" href="myPage?m_num=${sessionScope.no}&page=${pagination.endPage+1}&show=2" tabindex="-1">&raquo;</a>
+		                        </li>
+							</c:if>
+						</ul>
+					</nav>
+	              </div>
+	              
+	            </div>
+	          </div>
+	      </div>
+        </c:if>
+        
           </div>
         </section>
+       </section> 
 <%@ include file="client_bottom.jsp" %>

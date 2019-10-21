@@ -10,7 +10,7 @@ public class AdminDao {
 	@Autowired
 	private AdminSQLInter inter;
 	
-	public String adminLogin(AdminBean bean) {
+	public String aLogin(AdminBean bean) {
 		if(inter.adminLogin(bean)==null) {
 			return "fail";
 		}else {

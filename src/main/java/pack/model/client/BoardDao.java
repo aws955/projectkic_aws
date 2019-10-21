@@ -52,4 +52,12 @@ public class BoardDao {
 			return false;
 		}
 	}
+	
+	public ArrayList<BoardDto> getClientBoardList(Pagination pagination){
+		return (ArrayList<BoardDto>)inter.getClientBoardList(pagination);
+	}
+	
+	public int getClientBoardCount(String m_num) {
+		return inter.getClientBoardCount(m_num);
+	}
 }

@@ -24,10 +24,10 @@ public class AdminLoginController {
 	@RequestMapping(value = "adminLogin",method = RequestMethod.POST)
 	public String aLogin(AdminBean bean,HttpServletRequest request) {
 		HttpSession session =request.getSession();
-		if(dao.adminLogin(bean).equals("fail")) {
+		if(dao.aLogin(bean).equals("fail")) {
 			return "redirect:main";
 		}else {
-			session.setAttribute("no", dao.adminLogin(bean));
+			session.setAttribute("no", dao.aLogin(bean));
 			session.setAttribute("master", "2");
 			return "redirect:clientNoticeList";
 		}

@@ -48,4 +48,12 @@ public class ReplyDao {
 	public void deleteForBoardDelete(String b_num) {
 		inter.deleteForBoardDelete(b_num);
 	}
+	
+	public ArrayList<ReplyDto> getClientReply(Pagination pagination){
+		return (ArrayList<ReplyDto>)inter.getClientReply(pagination);
+	}
+	
+	public int getClientReplyCount(String m_num) {
+		return inter.getClientReplyCount(m_num);
+	}
 }

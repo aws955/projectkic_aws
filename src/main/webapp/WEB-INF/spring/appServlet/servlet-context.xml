@@ -28,4 +28,5 @@
 	
 	<aop:aspectj-autoproxy/>
 	<beans:bean class="pack.controller.aspect.ClientLoginAspect"/>
+	<beans:bean class="pack.controller.aspect.AdminLoginAspect"/>
 </beans:beans>

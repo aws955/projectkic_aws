@@ -35,7 +35,7 @@ public class ClientBoardModifyController {
 	}
 	
 	@RequestMapping(value = "clientBoardModify",method = RequestMethod.POST)
-	public String clientGetmodifyForm(
+	public String clientModifyBoard(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam("page") int page,

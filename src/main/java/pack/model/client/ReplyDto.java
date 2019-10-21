@@ -3,6 +3,7 @@ package pack.model.client;
 public class ReplyDto {
 	private String r_num,r_content,r_bno,r_sdate,r_mno,r_ip;
 	private String m_name;
+	private String b_cno;
 	public String getR_num() {
 		return r_num;
 	}
@@ -45,5 +46,13 @@ public class ReplyDto {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
+	public String getB_cno() {
+		return b_cno;
+	}
+	public void setB_cno(String b_cno) {
+		this.b_cno = b_cno;
+	}
+	
+	
 	
 }

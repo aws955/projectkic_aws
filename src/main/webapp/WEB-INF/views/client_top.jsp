@@ -53,7 +53,7 @@
         </c:if>
         <c:if test="${sessionScope.master eq '2'}" >
         	<ul class="nav pull-right top-menu">
-            	<li><a class="logout" href="login.html">관리자페이지</a></li>
+            	<li><a class="logout" href="noticeList">관리자페이지</a></li>
         	</ul>
         </c:if>
 

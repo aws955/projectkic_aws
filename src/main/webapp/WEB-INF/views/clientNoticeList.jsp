@@ -70,7 +70,6 @@
 	                          <a class="page-link" href="clientNoticeList?page=${pagination.endPage+1}" tabindex="-1">&raquo;</a>
 	                        </li>
 						</c:if>
-
 					</ul>
 				</nav>
               </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +46,7 @@
           <li><a class="logout" href="logout">Logout</a></li>
         </ul>
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Client Page</a></li>
+          <li><a class="logout" href="clientNoticeList">Client Page</a></li>
         </ul>
       </div>
     </header>
@@ -59,31 +60,31 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <li class="mt">
-            <a class="active" href="noticeList">
+            <a <c:if test="${sidebar eq '1' }">class="active"</c:if> href="noticeList">
               <i class="fa fa-user"></i>
               <span>공지사항 관리</span>
             </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="#">
+            <a <c:if test="${sidebar eq '2' }">class="active"</c:if> href="memberManage">
               <i class="fa fa-flask"></i>
               <span>회원 관리</span>
             </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="#">
+            <a <c:if test="${sidebar eq '3' }">class="active"</c:if> href="#">
               <i class="fa fa-sitemap"></i>
               <span>게시판 관리</span>
             </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="#">
+            <a <c:if test="${sidebar eq '4' }">class="active"</c:if> href="#">
               <i class="fa fa-cutlery"></i>
               <span>댓글 관리</span>
             </a>
           </li>
           <li class="sub-menu">
-            <a class="" href="adminManage">
+            <a <c:if test="${sidebar eq '5' }">class="active"</c:if> href="adminManage">
               <i class="fa fa-user"></i>
               <span>관리자 계정 관리</span>
             </a>

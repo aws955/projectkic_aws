@@ -42,4 +42,15 @@ public interface BoardSQLInter {
 	
 	@Delete("delete from board where b_num=#{b_num}")
 	public int deleteBoard(String b_num);
+	
+	@Select("select b_num,b_cno,b_title,b_content,b_mno,b_ip,DATE_FORMAT(b_sdate,'%Y/%m/%d') b_sdate,DATE_FORMAT(b_udate,'%Y/%m/%d') b_udate,b_views,m_name,c_name "
+			+ "from board,member,category "
+			+ "where b_cno=c_num and b_mno=m_num and b_mno = #{m_num} "
+			+ "order by b_num desc "	
+			+ "limit #{start},#{length} ")
+	public List<BoardDto> getClientBoardList(Pagination pagination);
+	
+	@Select("select count(*) from board where b_mno = #{m_num} ")
+	public int getClientBoardCount(String m_num);
+	
 }

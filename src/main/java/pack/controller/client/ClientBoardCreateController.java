@@ -48,6 +48,5 @@ public class ClientBoardCreateController {
 		}else {
 			return "redirect:clientNoticeList";
 		}
-		
 	}
 }
