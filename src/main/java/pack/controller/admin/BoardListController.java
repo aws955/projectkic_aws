@@ -36,4 +36,58 @@ public class BoardListController {
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping("adminStudy")
+	public ModelAndView adminGetStudyList(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam(defaultValue="1",name = "page") int page) {
+		
+		pagination.setB_cno("1");
+		pagination.paginationSetting(page, 10, 10, dao.getCategoryListCount("1"));
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/boardList");
+		modelAndView.addObject("sidebar", "3");
+		modelAndView.addObject("list", dao.getCategoryList(pagination));
+		modelAndView.addObject("pagination", pagination);
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("adminCompetition")
+	public ModelAndView adminGetCompetitionList(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam(defaultValue="1",name = "page") int page) {
+		
+		pagination.setB_cno("2");
+		pagination.paginationSetting(page, 10, 10, dao.getCategoryListCount("2"));
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/boardList");
+		modelAndView.addObject("sidebar", "3");
+		modelAndView.addObject("list", dao.getCategoryList(pagination));
+		modelAndView.addObject("pagination", pagination);
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("adminAmity")
+	public ModelAndView adminGetAmityList(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			@RequestParam(defaultValue="1",name = "page") int page) {
+		
+		pagination.setB_cno("3");
+		pagination.paginationSetting(page, 10, 10, dao.getCategoryListCount("3"));
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/boardList");
+		modelAndView.addObject("sidebar", "3");
+		modelAndView.addObject("list", dao.getCategoryList(pagination));
+		modelAndView.addObject("pagination", pagination);
+		
+		return modelAndView;
+	}
 }

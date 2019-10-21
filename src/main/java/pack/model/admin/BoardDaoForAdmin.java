@@ -19,4 +19,12 @@ public class BoardDaoForAdmin {
 	public int getAllBoardCount() {
 		return inter.getAllBoardCount();
 	}
+	
+	public ArrayList<BoardDtoForAdmin> getCategoryList(Pagination pagination){
+		return (ArrayList<BoardDtoForAdmin>)inter.getCategoryList(pagination);
+	}
+	
+	public int getCategoryListCount(String b_cno) {
+		return inter.getCategoryListCount(b_cno);
+	}
 }

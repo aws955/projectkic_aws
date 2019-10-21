@@ -11,6 +11,7 @@
             <div class="col-sm-2">
                 <select class="form-control" style="margin-top: 10px;" onchange="if(this.value) location.href=(this.value);">
                     <option>카테고리</option>
+                    <option value="boardList">전체</option>
                     <option value="adminStudy">스터디게시판</option>
                     <option value="adminCompetition">공모전게시판</option>
                     <option value="adminAmity">친목게시판</option>
