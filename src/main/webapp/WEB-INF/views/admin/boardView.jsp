@@ -9,7 +9,7 @@
         <section class="wrapper">
           <h3 class="col-sm-10"><i class="fa fa-angle-right"></i>게시판 이름</h3>
           <div class="col-sm-2">
-              <button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 15px; margin-left: 30px;">리스트 보기</button>
+              <button type="button" class="btn btn-theme btn-lg pull-right" style="margin-top: 15px; margin-left: 30px;" onclick = "location.href ='noticeList?page=${page}'">리스트 보기</button>
           </div>
           
           <div class="row mt">
@@ -44,7 +44,7 @@
                   <div class="form-group">
                     <div class="pull-right">
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-theme">글 삭제</button>
+                            <button type="button" class="btn btn-theme">글 삭제</button>
                           </div>
                     </div>    
                   </div>

@@ -27,4 +27,8 @@ public class BoardDaoForAdmin {
 	public int getCategoryListCount(String b_cno) {
 		return inter.getCategoryListCount(b_cno);
 	}
+	
+	public BoardDtoForAdmin getBoardView(String b_num) {
+		return inter.getBoardView(b_num);
+	}
 }

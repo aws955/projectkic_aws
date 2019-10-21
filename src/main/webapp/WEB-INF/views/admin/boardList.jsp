@@ -11,10 +11,10 @@
             <div class="col-sm-2">
                 <select class="form-control" style="margin-top: 10px;" onchange="if(this.value) location.href=(this.value);">
                     <option>카테고리</option>
-                    <option value="boardList">전체</option>
-                    <option value="adminStudy">스터디게시판</option>
-                    <option value="adminCompetition">공모전게시판</option>
-                    <option value="adminAmity">친목게시판</option>
+                    <option value="boardList" <c:if test="${index eq '1' }">selected="selected"</c:if> >전체</option>
+                    <option value="adminStudy" <c:if test="${index eq '2' }">selected="selected"</c:if> >스터디게시판</option>
+                    <option value="adminCompetition" <c:if test="${index eq '3' }">selected="selected"</c:if>>공모전게시판</option>
+                    <option value="adminAmity" <c:if test="${index eq '4' }">selected="selected"</c:if>>친목게시판</option>
                 </select>
             </div>
           <div class="row">
@@ -47,7 +47,7 @@
                 		<c:forEach var="d" items="${list}" begin="0" end="${pagination.length}" varStatus="status">
                 			<tr>
 				                <td style="text-align: center">${pagination.pageNum - status.index}</td>
-			                    <td><a href="boardView?b_num=${d.b_num}&page=${pagination.page}&sidebar=${sidebar}">${d.b_title}</a></td>
+			                    <td><a href="boardView?b_num=${d.b_num}&page=${pagination.page}&sidebar=${sidebar}&index=${index}">${d.b_title}</a></td>
 			                    <td style="text-align: center">${d.m_name}</td>
 			                    <td style="text-align: center">${d.b_sdate}</td>
 			                    <td style="text-align: center">${d.b_views}</td>
@@ -63,20 +63,33 @@
 						<c:if test="${pagination.currentBlock eq 1 }"></c:if>
 						<c:if test="${pagination.currentBlock != 1 }">
 							<li class="page-item ">
-	                          <a class="page-link" href='boardList?page=${pagination.startPage-1}' tabindex="-1">&laquo;</a>
+	                          <a class="page-link" 
+	                          	<c:if test="${index eq '1' }">href='boardList?page=${pagination.startPage-1}'</c:if> 
+	                          	<c:if test="${index eq '2' }">href='adminStudy?page=${pagination.startPage-1}'</c:if> 
+	                          	<c:if test="${index eq '3' }">href='adminCompetition?page=${pagination.startPage-1}'</c:if> 
+	                          	<c:if test="${index eq '4' }">href='adminAmity?page=${pagination.startPage-1}'</c:if> 
+	                          tabindex="-1">&laquo;</a>
 	                        </li>
 						</c:if>
 					
 						<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
 							<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
-								<a class="page-link" href="boardList?page=${e}">${e}</a>
+								<c:if test="${index eq '1' }"><a class="page-link" href="boardList?page=${e}">${e}</a></c:if> 
+	                          	<c:if test="${index eq '2' }"><a class="page-link" href="adminStudy?page=${e}">${e}</a></c:if> 
+	                          	<c:if test="${index eq '3' }"><a class="page-link" href="adminCompetition?page=${e}">${e}</a></c:if> 
+	                          	<c:if test="${index eq '4' }"><a class="page-link" href="adminAmity?page=${e}">${e}</a></c:if> 
 							</li>
 						</c:forEach>
 						
 						<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
 						<c:if test="${pagination.currentBlock != pagination.totalBlock}">
 							<li class="page-item">
-	                          <a class="page-link" href="boardList?page=${pagination.endPage+1}" tabindex="-1">&raquo;</a>
+	                          <a class="page-link" 
+	                          	<c:if test="${index eq '1' }">href='boardList?page=${pagination.endPage+1}'</c:if> 
+	                          	<c:if test="${index eq '2' }">href='adminStudy?page=${pagination.endPage+1}'</c:if> 
+	                          	<c:if test="${index eq '3' }">href='adminCompetition?page=${pagination.endPage+1}'</c:if> 
+	                          	<c:if test="${index eq '4' }">href='adminAmity?page=${pagination.endPage+1}'</c:if> 
+	                          tabindex="-1">&laquo;</a>
 	                        </li>
 						</c:if>
 					</ul>

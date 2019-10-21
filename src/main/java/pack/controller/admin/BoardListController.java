@@ -33,6 +33,7 @@ public class BoardListController {
 		modelAndView.addObject("sidebar", "3");
 		modelAndView.addObject("list", dao.getAllBoardList(pagination));
 		modelAndView.addObject("pagination", pagination);
+		modelAndView.addObject("index", "1");
 		
 		return modelAndView;
 	}
@@ -51,6 +52,7 @@ public class BoardListController {
 		modelAndView.addObject("sidebar", "3");
 		modelAndView.addObject("list", dao.getCategoryList(pagination));
 		modelAndView.addObject("pagination", pagination);
+		modelAndView.addObject("index", "2");
 		
 		return modelAndView;
 	}
@@ -69,6 +71,7 @@ public class BoardListController {
 		modelAndView.addObject("sidebar", "3");
 		modelAndView.addObject("list", dao.getCategoryList(pagination));
 		modelAndView.addObject("pagination", pagination);
+		modelAndView.addObject("index", "3");
 		
 		return modelAndView;
 	}
@@ -87,6 +90,7 @@ public class BoardListController {
 		modelAndView.addObject("sidebar", "3");
 		modelAndView.addObject("list", dao.getCategoryList(pagination));
 		modelAndView.addObject("pagination", pagination);
+		modelAndView.addObject("index", "4");
 		
 		return modelAndView;
 	}

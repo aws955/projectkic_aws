@@ -22,10 +22,16 @@ public class BoardViewController {
 			HttpServletResponse response,
 			@RequestParam(defaultValue="1",name = "page") int page,
 			@RequestParam("b_num") String b_num,
-			@RequestParam("sidebar") String sidebar) {
+			@RequestParam("sidebar") String sidebar,
+			@RequestParam("index") String index) {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("admin/boardView");
-		modelAndView.addObject(attributeName, attributeValue)
+		modelAndView.addObject("page", page);
+		modelAndView.addObject("sidebar", sidebar);
+		modelAndView.addObject("index", index);
+		modelAndView.addObject("dto", dao.getBoardView(b_num));
+		
+		return modelAndView;
 	}
 }

@@ -26,4 +26,9 @@ public interface BoardSQLInterForAdmin {
 	
 	@Select("select count(*) from board where b_cno=#{b_cno}")
 	public int getCategoryListCount(String b_cno);
+	
+	@Select("select b_num,b_cno,b_title,b_content,b_mno,b_ip,DATE_FORMAT(b_sdate,'%Y/%m/%d') b_sdate,DATE_FORMAT(b_udate,'%Y/%m/%d') b_udate,b_views,m_name,c_name "
+			+ "from board,member,category "
+			+ "where b_cno=c_num and b_mno = m_num and b_num=#{b_num}")
+	public BoardDtoForAdmin getBoardView(String b_num);
 }
