@@ -13,29 +13,29 @@ import org.springframework.web.servlet.ModelAndView;
 import pack.model.client.MemberDao;
 
 @Controller
-public class ModifyClientController {
+public class ModifyClientPwdController {
 	@Autowired
 	private MemberDao dao;
 	
-	@RequestMapping(value = "modifyClient", method = RequestMethod.GET)
-	public ModelAndView clientGetModifyForm(
+	@RequestMapping(value = "modifyClientPwd" , method = RequestMethod.GET)
+	public ModelAndView clientGetModifyPwdForm(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam("m_num") String m_num) {
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("clientModify");
+		modelAndView.setViewName("clientModifyPwd");
 		modelAndView.addObject("dto", dao.getClient(m_num));
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "modifyClient", method = RequestMethod.POST)
-	public String clientModify(
+	@RequestMapping(value = "modifyClientPwd" , method = RequestMethod.POST)
+	public String clientModifyPwd(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			MemberBean bean) {
 		
-		dao.updateMember(bean);
+		dao.updateMemberPwd(bean);
 		
 		return "redirect:myPage?m_num="+bean.getM_num();
 	}

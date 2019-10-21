@@ -2,6 +2,7 @@ package pack.controller.client;
 
 public class MemberBean {
 	private String m_num,m_email,m_name,m_password,m_phone1,m_phone2,m_phone3,m_state,m_grade,m_warning,m_regdate;
+	private String m_newPassword;
 
 	public String getM_num() {
 		return m_num;
@@ -89,6 +90,14 @@ public class MemberBean {
 
 	public void setM_regdate(String m_regdate) {
 		this.m_regdate = m_regdate;
+	}
+
+	public String getM_newPassword() {
+		return m_newPassword;
+	}
+
+	public void setM_newPassword(String m_newPassword) {
+		this.m_newPassword = m_newPassword.trim();
 	}
 	
 }

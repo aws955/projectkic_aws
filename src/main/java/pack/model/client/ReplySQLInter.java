@@ -49,4 +49,7 @@ public interface ReplySQLInter {
 	
 	@Select("select count(*) from reply where r_mno=#{m_num}")
 	public int getClientReplyCount(String m_num);
+	
+	@Delete("delete from reply where r_mno = #{m_num}")
+	public int deleteRepleyForMemberDelete(String m_num);
 }

@@ -60,4 +60,12 @@ public class BoardDao {
 	public int getClientBoardCount(String m_num) {
 		return inter.getClientBoardCount(m_num);
 	}
+	
+	public boolean deleteBoardForMemberDelete(String m_num) {
+		if(inter.deleteBoardForMemberDelete(m_num)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

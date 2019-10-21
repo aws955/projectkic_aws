@@ -39,7 +39,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>KIC <span>커뮤니티</span> </b>관리자페이지</a>
+      <a href="noticeList" class="logo"><b>KIC <span>커뮤니티</span> </b>관리자페이지</a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -72,7 +72,7 @@
             </a>
           </li>
           <li class="sub-menu">
-            <a <c:if test="${sidebar eq '3' }">class="active"</c:if> href="#">
+            <a <c:if test="${sidebar eq '3' }">class="active"</c:if> href="boardList">
               <i class="fa fa-sitemap"></i>
               <span>게시판 관리</span>
             </a>

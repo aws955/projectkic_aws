@@ -56,4 +56,12 @@ public class ReplyDao {
 	public int getClientReplyCount(String m_num) {
 		return inter.getClientReplyCount(m_num);
 	}
+	
+	public boolean deleteRepleyForMemberDelete(String m_num) {
+		if(inter.deleteRepleyForMemberDelete(m_num)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

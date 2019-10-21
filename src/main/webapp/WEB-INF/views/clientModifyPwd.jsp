@@ -12,30 +12,34 @@
           <div class="row mt">
             <div class="col-lg-12">
               <div class="form-panel">
-                <form class="form-horizontal style-form" method="post">
+                <form class="form-horizontal style-form" method="post" action="modifyClientPwd" name="frm">
+                	<input type="hidden" name="m_num" value="${dto.m_num}">
                   <div class="form-group">
                       <label class="col-sm-2 control-label">기존 비밀번호</label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="m_password" id="m_password">
+                        <div id="pwdErrorMsg" class="text-danger" style="font-size: 14px;"></div>
                       </div>
                   </div>
                   <div class="form-group">
                       <label class="col-sm-2 control-label">새 비밀번호</label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" name="m_newPassword" id="m_newPassword">
+                        <div id="newPwdErrorMsg" class="text-danger" style="font-size: 14px;"></div>
                       </div>
                   </div>
                   <div class="form-group">
                       <label class="col-sm-2 control-label">새 비밀번호 확인</label>
                       <div class="col-sm-10">
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" id="m_newPwdChk">
+                        <div id="newPwdchkErrorMsg" class="text-danger" style="font-size: 14px;"></div>
                       </div>
                   </div>
 
                   <div class="form-group">
                       <div class="pull-right">
                           <div class="col-lg-12">
-                              <button type="submit" class="btn btn-theme">회원 정보 수정</button>
+                              <button type="button" class="btn btn-theme" id="clientModifyPwdChk">회원 정보 수정</button>
                             </div>
                       </div>    
                   </div>

@@ -1,7 +1,9 @@
 package pack.model.client;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import pack.controller.client.MemberBean;
 
@@ -20,4 +22,14 @@ public interface MemberSQLInter {
 			+ "from member where m_num=#{m_num}")
 	public MemberDto getClient(String m_num);
 	
+	@Update("update member set m_name=#{m_name} , m_phone1=#{m_phone1}, m_phone2=#{m_phone2}, m_phone3=#{m_phone3} "
+			+ "where m_num=#{m_num} and m_password=password(#{m_password}) ")
+	public int updateMember(MemberBean bean);
+	
+	@Update("update member set m_password = password(#{m_newPassword}) "
+			+ "where m_num=#{m_num} and m_password = password(#{m_password}) ")
+	public int updateMemberPwd(MemberBean bean);
+	
+	@Delete("delete from member where m_num=#{m_num}")
+	public int deleteMember(String m_num);
 }

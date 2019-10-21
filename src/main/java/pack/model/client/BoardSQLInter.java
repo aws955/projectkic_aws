@@ -53,4 +53,7 @@ public interface BoardSQLInter {
 	@Select("select count(*) from board where b_mno = #{m_num} ")
 	public int getClientBoardCount(String m_num);
 	
+	@Delete("delete from board where b_mno=#{m_num}")
+	public int deleteBoardForMemberDelete(String m_num);
+	
 }

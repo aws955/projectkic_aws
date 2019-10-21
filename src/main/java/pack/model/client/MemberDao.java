@@ -38,4 +38,28 @@ public class MemberDao {
 		return inter.getClient(m_num);
 	}
 	
+	public boolean updateMember(MemberBean bean) {
+		if(inter.updateMember(bean)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean updateMemberPwd(MemberBean bean) {
+		if(inter.updateMemberPwd(bean)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean deleteMember(String m_num) {
+		if(inter.deleteMember(m_num)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }

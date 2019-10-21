@@ -15,7 +15,7 @@
                       <div class="col-lg-12">
                         <div class="form-panel">
                           <h4 class="mb"><i class="fa fa-angle-right"></i>개인정보</h4>
-                          <form class="form-horizontal style-form" method="POST">
+                          <form class="form-horizontal style-form">
                             <div class="form-group">
                               <label class="col-sm-2 control-label">이름</label>
                               <div class="col-sm-10">
@@ -45,7 +45,7 @@
                                 <div class="col-sm-3">
                                   <button type="button" class="btn btn-theme" onclick = "location.href ='modifyClient?m_num=${dto.m_num}'">회원정보 수정</button>
                                   <button type="button" class="btn btn-theme" onclick = "location.href ='modifyClientPwd?m_num=${dto.m_num}'">비밀번호 변경</button>
-                                  <button type="button" class="btn btn-theme" onclick = "location.href ='deleteClient?m_num=${dto.m_num}'">회원탈퇴</button>
+                                  <button type="button" class="btn btn-theme" onclick = "deleteClientConfirm('deleteClient?m_num=${dto.m_num}')">회원탈퇴</button>
                                 </div>
                             </div>
                           </form>
