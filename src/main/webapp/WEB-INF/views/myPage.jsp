@@ -43,9 +43,9 @@
                             <div class="form-group">
                                 <label class="col-sm-9 control-label"> </label>
                                 <div class="col-sm-3">
-                                  <button type="button" class="btn btn-theme">회원정보 수정</button>
-                                  <button type="button" class="btn btn-theme">비밀번호 변경</button>
-                                  <button type="button" class="btn btn-theme">회원탈퇴</button>
+                                  <button type="button" class="btn btn-theme" onclick = "location.href ='modifyClient?m_num=${dto.m_num}'">회원정보 수정</button>
+                                  <button type="button" class="btn btn-theme" onclick = "location.href ='modifyClientPwd?m_num=${dto.m_num}'">비밀번호 변경</button>
+                                  <button type="button" class="btn btn-theme" onclick = "location.href ='deleteClient?m_num=${dto.m_num}'">회원탈퇴</button>
                                 </div>
                             </div>
                           </form>
