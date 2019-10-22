@@ -17,7 +17,10 @@
           <div class="col-sm-2">
           	<form action="clientBoardCreate" method="get">
           		<input type="hidden" value="${sidebar}" name="sidebar">
-              	<button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 5px;">새글 적기</button>
+          		<c:if test="${sessionScope.no eq dto.b_mno && sessionScope.master eq '1'}">
+	              	<button type="submit" class="btn btn-theme btn-lg pull-right" style="margin-top: 5px;">새글 적기</button>
+          		
+          		</c:if>
           	</form>
           </div>
         <div class="row">
