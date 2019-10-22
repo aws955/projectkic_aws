@@ -92,7 +92,7 @@
              		 </form>
             	</c:if>
              	<c:if test="${empty list }">
-             		<p style="text-align: center;">등록된 게시글이 없습니다</p>
+             		<p style="text-align: center;">등록된 댓글이 없습니다</p>
              	</c:if>
              	<c:if test="${!empty list }">
              		<c:forEach var="r" items="${list }" varStatus="vs" >
@@ -137,26 +137,26 @@
             			</form>
              		</c:forEach>
              	</c:if>
-             	             <div style="text-align: center;">
+             	<div style="text-align: center;">
             	<nav aria-label="Page navigation example">
 					<ul class="pagination pagination-lg">
 						<c:if test="${pagination.currentBlock eq 1 }"></c:if>
 						<c:if test="${pagination.currentBlock != 1 }">
 							<li class="page-item ">
-	                          <a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=${pagination.startPage-1}" tabindex="-1">&laquo;</a>
+	                          <a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.startPage-1}" tabindex="-1">&laquo;</a>
 	                        </li>
 						</c:if>
 					
 						<c:forEach var="e" begin="${pagination.startPage}" end="${pagination.endPage}">
 							<li class="page-item <c:if test="${pagination.page eq e}">active</c:if>">
-								<a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=${e}">${e}</a>
+								<a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}&rpage=${e}">${e}</a>
 							</li>
 						</c:forEach>
 						
 						<c:if test="${pagination.currentBlock eq pagination.totalBlock}"></c:if>
 						<c:if test="${pagination.currentBlock != pagination.totalBlock}">
 							<li class="page-item">
-	                          <a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${pagination.page}&sidebar=${sidebar}&rpage=${pagination.endPage+1}" tabindex="-1">&raquo;</a>
+	                          <a class="page-link" href="clientBoardView?b_num=${dto.b_num}&page=${page}&sidebar=${sidebar}&rpage=${pagination.endPage+1}" tabindex="-1">&raquo;</a>
 	                        </li>
 						</c:if>
 

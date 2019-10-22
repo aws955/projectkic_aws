@@ -9,30 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pack.model.admin.BoardDaoForAdmin;
-import pack.model.admin.MemberManageDao;
 import pack.model.admin.ReplyDaoForAdmin;
 
 @Controller
-public class DeleteMemberController {
+public class BoardDeleteController {
 	@Autowired
-	private MemberManageDao dao;
+	private BoardDaoForAdmin dao;
 	
 	@Autowired
 	private ReplyDaoForAdmin rdao;
 	
-	@Autowired
-	private BoardDaoForAdmin bdao;
-	
-	@RequestMapping("deleteMember")
-	public String adminDeleteMember(
+	@RequestMapping("boardDelete")
+	public String adminDeleteBoard(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam(defaultValue="1",name = "page") int page,
-			@RequestParam("m_num") String m_num) {
+			@RequestParam("b_num") String b_num,
+			@RequestParam("index") String index) {
 		
-		rdao.deleteRepleyForMemberDeleteForAdmin(m_num);
-		bdao.deleteBoardForMemberDeleteForAdmin(m_num);
-		dao.deleteMember(m_num);
-		return "redirect:memberManage?page="+page;
+		rdao.deleteForBoardDeleteForAdmin(b_num);
+		dao.deleteBoard(b_num);
+		
+		if(index.equals("1")) {
+			return "redirect:boardList?page="+page;
+		}else if(index.equals("2")) {
+			return "redirect:adminStudy?page="+page;
+		}else if(index.equals("3")) {
+			return "redirect:adminCompetition?page="+page;
+		}else if(index.equals("4")) {
+			return "redirect:adminAmity?page="+page;
+		}else {
+			return "redirect:boardList?page="+page;
+		}
 	}
 }

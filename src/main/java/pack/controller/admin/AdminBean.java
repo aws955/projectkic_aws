@@ -16,7 +16,7 @@ public class AdminBean {
 	}
 
 	public void setA_email(String a_email) {
-		this.a_email = a_email;
+		this.a_email = a_email.trim();
 	}
 
 	public String getA_name() {
@@ -24,7 +24,7 @@ public class AdminBean {
 	}
 
 	public void setA_name(String a_name) {
-		this.a_name = a_name;
+		this.a_name = a_name.trim();
 	}
 
 	public String getA_phone1() {
@@ -32,7 +32,7 @@ public class AdminBean {
 	}
 
 	public void setA_phone1(String a_phone1) {
-		this.a_phone1 = a_phone1;
+		this.a_phone1 = a_phone1.trim();
 	}
 
 	public String getA_phone2() {
@@ -40,7 +40,7 @@ public class AdminBean {
 	}
 
 	public void setA_phone2(String a_phone2) {
-		this.a_phone2 = a_phone2;
+		this.a_phone2 = a_phone2.trim();
 	}
 
 	public String getA_phone3() {
@@ -48,7 +48,7 @@ public class AdminBean {
 	}
 
 	public void setA_phone3(String a_phone3) {
-		this.a_phone3 = a_phone3;
+		this.a_phone3 = a_phone3.trim();
 	}
 
 	public String getA_password() {
@@ -56,7 +56,7 @@ public class AdminBean {
 	}
 
 	public void setA_password(String a_password) {
-		this.a_password = a_password;
+		this.a_password = a_password.trim();
 	}
 	
 }

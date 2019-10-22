@@ -39,4 +39,7 @@ public interface NoticeSQLInter {
 	
 	@Delete("delete from notice where n_num=#{n_num}")
 	public int deleteNotice(String n_num);
+	
+	@Delete("delete from notice where n_ano=#{a_num}")
+	public void deleteNoticeForAdminDelete(String a_num);
 }

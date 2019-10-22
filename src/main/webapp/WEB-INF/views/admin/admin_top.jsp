@@ -78,7 +78,7 @@
             </a>
           </li>
           <li class="sub-menu">
-            <a <c:if test="${sidebar eq '4' }">class="active"</c:if> href="#">
+            <a <c:if test="${sidebar eq '4' }">class="active"</c:if> href="replyManage">
               <i class="fa fa-cutlery"></i>
               <span>댓글 관리</span>
             </a>

@@ -8,31 +8,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pack.model.admin.BoardDaoForAdmin;
-import pack.model.admin.MemberManageDao;
 import pack.model.admin.ReplyDaoForAdmin;
 
 @Controller
-public class DeleteMemberController {
+public class ReplyDeleteForAdminController {
 	@Autowired
-	private MemberManageDao dao;
+	private ReplyDaoForAdmin dao;
 	
-	@Autowired
-	private ReplyDaoForAdmin rdao;
-	
-	@Autowired
-	private BoardDaoForAdmin bdao;
-	
-	@RequestMapping("deleteMember")
-	public String adminDeleteMember(
+	@RequestMapping("adminReplyDeleteInManage")
+	public String adminDeleteReply(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam(defaultValue="1",name = "page") int page,
-			@RequestParam("m_num") String m_num) {
+			@RequestParam("r_num") String r_num) {
 		
-		rdao.deleteRepleyForMemberDeleteForAdmin(m_num);
-		bdao.deleteBoardForMemberDeleteForAdmin(m_num);
-		dao.deleteMember(m_num);
-		return "redirect:memberManage?page="+page;
+		dao.deleteReplyForAdmin(r_num);
+		return "redirect:replyManage?page="+page;
 	}
 }

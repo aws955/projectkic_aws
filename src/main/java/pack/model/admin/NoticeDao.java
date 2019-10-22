@@ -52,4 +52,8 @@ public class NoticeDao {
 			return false;
 		}
 	}
+	
+	public void deleteNoticeForAdminDelete(String a_num) {
+		inter.deleteNoticeForAdminDelete(a_num);
+	}
 }

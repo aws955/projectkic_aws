@@ -2,6 +2,7 @@ package pack.model.admin;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 
 import pack.utility.Pagination;
@@ -31,4 +32,10 @@ public interface BoardSQLInterForAdmin {
 			+ "from board,member,category "
 			+ "where b_cno=c_num and b_mno = m_num and b_num=#{b_num}")
 	public BoardDtoForAdmin getBoardView(String b_num);
+	
+	@Delete("delete from board where b_num=#{b_num}")
+	public int deleteBoard(String b_num);
+	
+	@Delete("delete from board where b_mno=#{m_num}")
+	public int deleteBoardForMemberDeleteForAdmin(String m_num);
 }

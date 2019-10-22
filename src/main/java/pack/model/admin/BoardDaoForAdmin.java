@@ -31,4 +31,16 @@ public class BoardDaoForAdmin {
 	public BoardDtoForAdmin getBoardView(String b_num) {
 		return inter.getBoardView(b_num);
 	}
+	
+	public boolean deleteBoard(String b_num) {
+		if(inter.deleteBoard(b_num)>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void deleteBoardForMemberDeleteForAdmin(String m_num) {
+		inter.deleteBoardForMemberDeleteForAdmin(m_num);
+	}
 }
